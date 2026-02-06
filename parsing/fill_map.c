@@ -1,4 +1,6 @@
-int	get_altitude(char *value)
+#include "../fdf.h"
+
+static int	get_altitude(char *value)
 {
 	int	i;
 	int	count;
@@ -21,7 +23,7 @@ int	get_altitude(char *value)
 	return (sign * count);
 }
 
-int	get_color(char *value)
+static int	get_color(char *value)
 {
 	int	i;
 	int	count;
@@ -36,7 +38,7 @@ int	get_color(char *value)
 	return (0xFFFFFF);
 }
 
-void	fill_line(char **values, t_map *map, int y)
+static void	fill_line(char **values, t_map *map, int y)
 {
 	int	x;
 
@@ -51,7 +53,7 @@ void	fill_line(char **values, t_map *map, int y)
 	}
 }
 
-int	split_line(char *line, t_map *map, int y)
+static int	split_line(char *line, t_map *map, int y)
 {
 	char	**values;
 

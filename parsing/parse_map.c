@@ -1,7 +1,8 @@
 // width;   // abscisse (x)
 // height;  // ordonnée (y)
+#include "../fdf.h"
 
-int	count_arg(char *line)
+static int	count_arg(char *line)
 {
 	int	i;
 	int	count;
@@ -18,7 +19,7 @@ int	count_arg(char *line)
 	return (count);
 }
 
-int	get_dim(char *file, t_map *map)
+static int	get_dim(char *file, t_map *map)
 {
 	int		fd;
 	int		x;

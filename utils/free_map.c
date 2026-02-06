@@ -1,4 +1,6 @@
-void free_map(int **z, int height)
+#include "../fdf.h"
+
+void	free_map(int **z, int height)
 {
 	int i;
 
