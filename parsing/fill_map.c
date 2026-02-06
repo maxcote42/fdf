@@ -15,7 +15,7 @@ static int	get_altitude(char *value)
 			sign = -1;
 		i++;
 	}
-	while (is_digit(value[i]))
+	while (ft_isdigit(value[i]))
 	{
 		count = count * 10 + (value[i] - '0');
 		i++;
@@ -26,7 +26,6 @@ static int	get_altitude(char *value)
 static int	get_color(char *value)
 {
 	int	i;
-	int	count;
 
 	i = 0;
 	while (value[i])

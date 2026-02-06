@@ -11,8 +11,8 @@ static int	count_arg(char *line)
 	count = 0;
 	while (line[i])
 	{
-		if ((!is_whitespace(line[i]))
-			&& ((i == 0) || (is_whitespace(line[i - 1]))))
+		if ((!iswhitespace(line[i]))
+			&& ((i == 0) || (iswhitespace(line[i - 1]))))
 			count++;
 		i++;
 	}
