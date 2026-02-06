@@ -20,8 +20,6 @@ int	main(int argc, char **argv)
 		return (1);
 	if (parse_map(argv[1], &map) == 1)
 		return (1);
-
-
 	free_map(map.points, map.height);
 	return (0);
 }

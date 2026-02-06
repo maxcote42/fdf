@@ -20,7 +20,7 @@ void	free_tab(char **tab)
 		return ;
 	i = 0;
 	while (tab[i])
-	{	
+	{
 		if (tab[i])
 			free(tab[i++]);
 	}
