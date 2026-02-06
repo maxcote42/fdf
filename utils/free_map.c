@@ -1,14 +1,29 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   free_map.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: maxcote <maxcote@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/02/06 12:34:07 by maxcote           #+#    #+#             */
+/*   Updated: 2026/02/06 12:34:08 by maxcote          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../fdf.h"
 
-void	free_map(int **z, int height)
+void	free_map(t_point **points, int height)
 {
-	int i;
+	int	i;
 
+	if (!points)
+		return ;
 	i = 0;
 	while (i < height)
 	{
-		free(z[i]);
+		if (points[i])
+			free(points[i]);
 		i++;
 	}
-	free(z);
+	free(points);
 }
