@@ -75,7 +75,7 @@ static int	split_line(char *line, t_map *map, int y)
 	if (!values)
 		return (1);
 	fill_line(values, map, y);
-	free_tab(values);
+	// free_tab(values); PROBLEME ICI
 	return (0);
 }
 
