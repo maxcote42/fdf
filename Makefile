@@ -1,6 +1,9 @@
 NAME = fdf
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -Ilibft
+
+LIBFT_PATH = libft
+LIBFT = $(LIBFT_PATH)/libft.a
 
 SRCS = $(wildcard *.c) \
 		$(wildcard utils/*.c) \
@@ -8,20 +11,24 @@ SRCS = $(wildcard *.c) \
 
 OBJS = $(SRCS:.c=.o)
 
+all: $(LIBFT) $(NAME)
 
-all: $(NAME)
+$(LIBFT):
+	make -C $(LIBFT_PATH)
 
 $(NAME): $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJS) -Llibft -lft -o $(NAME)
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 	rm -f $(OBJS)
+	make -C $(LIBFT_PATH) clean
 
 fclean: clean
 	rm -f $(NAME)
+	make -C $(LIBFT_PATH) fclean
 
 re: fclean all
 

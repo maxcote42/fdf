@@ -1,5 +1,8 @@
-#ifndef
+#ifndef FDF_H
 # define FDF_H
+
+# include <stdlib.h>
+# include "libft.h"
 
 typedef struct s_map
 {
@@ -25,6 +28,5 @@ char	**ft_split(char const *s, char c);
 int		ft_atoi(const char *str);
 void	free_tab(char **tab);
 void	free_map(int **z, int height);
-
 
 # endif
