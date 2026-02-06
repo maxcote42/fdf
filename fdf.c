@@ -29,7 +29,7 @@ int	main(int argc, char **argv)
 		x = 0;
 		while (x < map.width)
 		{
-			ft_printf("%4d ", map.points[y][x].z);
+			ft_printf("%d ", map.points[y][x].z);
 			x++;
 		}
 		ft_printf("\n");
@@ -44,7 +44,7 @@ int	main(int argc, char **argv)
 		x = 0;
 		while (x < map.width)
 		{
-			ft_printf("%#08x ", map.points[y][x].color);
+			ft_printf("%x ", map.points[y][x].color);
 			x++;
 		}
 		ft_printf("\n");
