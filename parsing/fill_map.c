@@ -54,7 +54,7 @@ static void	fill_line(char **values, t_map *map, int y)
 	int	x;
 
 	x = 0;
-	while (values[x])
+	while (x < (int)map->width)
 	{
 		map->points[y][x].x = x;
 		map->points[y][x].y = y;
@@ -75,7 +75,7 @@ static int	split_line(char *line, t_map *map, int y)
 	if (!values)
 		return (1);
 	fill_line(values, map, y);
-	// free_tab(values); PROBLEME ICI
+	free_tab(values);
 	return (0);
 }
 

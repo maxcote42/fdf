@@ -20,6 +20,14 @@ int	main(int argc, char **argv)
 		return (1);
 	if (parse_map(argv[1], &map) == 1)
 		return (1);
+
+
+	free_map(map.points, map.height);
+	return (0);
+}
+
+/*
+// TEST PARSING
 	// Affichage altitude
 	unsigned int	x, y;
 	ft_printf("=== Altitude Map ===\n");
@@ -50,7 +58,4 @@ int	main(int argc, char **argv)
 		ft_printf("\n");
 		y++;
 	}
-
-	return (0);
-}
-
+*/
