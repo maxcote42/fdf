@@ -20,7 +20,12 @@ int	main(int argc, char **argv)
 		return (1);
 	if (parse_map(argv[1], &map) == 1)
 		return (1);
+
+	void	*mlx = mlx_init();
+	void	*win = mlx_new_window(mlx, 900, 1200, "fdf");
+
 	free_map(map.points, map.height);
+
 	return (0);
 }
 

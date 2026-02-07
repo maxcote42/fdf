@@ -14,9 +14,10 @@
 # define FDF_H
 
 # include <stdlib.h>
-# include "libft.h"
 # include <fcntl.h>
 # include <unistd.h>
+# include "libft.h"
+# include "mlx.h"
 
 typedef struct s_point
 {
