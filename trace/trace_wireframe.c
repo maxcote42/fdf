@@ -71,7 +71,6 @@ static void	init_line(void *win, void *mlx, t_point *p1, t_point *p2)
 		bresenham_line(win, mlx, p1, p2);
 }
 
-
 void	trace_wireframe(t_map *map, void *win, void *mlx)
 {
 	int	x;

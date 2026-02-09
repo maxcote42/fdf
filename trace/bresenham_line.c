@@ -15,4 +15,4 @@
 // width;   // abscisse (x)
 // height;  // ordonnée (y)
 
-bresenham_line(void *win, void *mlx, t_point *p1, t_point *p2)
+void	bresenham_line(void *win, void *mlx, t_point *p1, t_point *p2)
