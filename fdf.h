@@ -20,9 +20,12 @@
 # include "libft.h"
 # include "mlx.h"
 
-#define ANGLE 0.523599
+// definitions primaires
 // 30° en radians
-#define SCALE 20
+# define ANGLE 0.523599
+# define SCALE 20
+# define ORIGIN_X 600
+# define ORIGIN_Y 100
 
 typedef struct s_point
 {
