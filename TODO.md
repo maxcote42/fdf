@@ -4,14 +4,14 @@
 
 ## INITIALISATION
 
-[] Initialiser MiniLibX
-[] ouvrir une fenetre
+[x] Initialiser MiniLibX
+[x] ouvrir une fenetre
 
 ## TRACER
 
-[] Determiner le point de depart et l'echelle pris (en pixel)
+[x] Determiner le point de depart et l'echelle pris (en pixel)
     --> faire une variable scale modifiable
-[] Conversion isometrique
+[x] Conversion isometrique
 [] Couleur gradient
 [] Tracer lignes
 
