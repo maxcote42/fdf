@@ -18,10 +18,10 @@
 //dx = 0
 static void	vertical_line(void *win, void *mlx, t_point *p1, t_point *p2)
 {
-	int	y;
-	int	step;
-	int	color;
-	int	step_color;
+	int		y;
+	int		step;
+	float	color;
+	int		step_color;
 
 	step = 1;
 	if (p1->y_iso > p2->y_iso)
@@ -31,7 +31,7 @@ static void	vertical_line(void *win, void *mlx, t_point *p1, t_point *p2)
 	color = p1->color;
 	while (y != (p2->y_iso + step))
 	{
-		draw_pixel(win, mlx, p1->x_iso, y, color);
+		draw_pixel(win, mlx, (int)p1->x_iso, y, (int)color);
 		y += step;
 		color += step_color;
 	}
@@ -53,21 +53,16 @@ static void	horizontal_line(void *win, void *mlx, t_point *p1, t_point *p2)
 	color = p1->color;
 	while (x != (p2->x_iso + step))
 	{
-		draw_pixel(win, mlx, x, p1->y_iso, color);
+		draw_pixel(win, mlx, x, (int)p1->y_iso, color);
 		x += step;
 		color += step_color;
 	}
 }
 
-// traduction en pixel ecran des coordonnees iso selon les coordonnes origine
 static void	init_line(void *win, void *mlx, t_point *p1, t_point *p2)
 {
-	p1->x_iso = ORIGIN_X * SCALE;
-	p1->y_iso = ORIGIN_Y * SCALE;
-	p2->x_iso = ORIGIN_X * SCALE;
-	p2->y_iso = ORIGIN_Y * SCALE;
 	if ((p1->x_iso == p2->x_iso) && (p1->y_iso == p2->y_iso))
-		//FONCTION A METTRE DE DESINER PIXEL
+		draw_pixel(win, mlx, (int)p1->x_iso, (int)p1->y_iso, p1->color);
 	else if (p1->x_iso == p2->x_iso)
 		vertical_line(win, mlx, p1, p2);
 	else if (p1->y_iso == p2->y_iso)
@@ -81,8 +76,12 @@ void	trace_wireframe(t_map *map, void *win, void *mlx)
 {
 	int	x;
 	int	y;
-	
-	convert_iso(map);
+	int	height;
+	int	width;
+
+	height = map->height;
+	width = map->width;
+	convert_scale(map);
 	y = 0;
 	while (y < height)
 	{

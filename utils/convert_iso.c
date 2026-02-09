@@ -15,13 +15,14 @@
 // width;   // abscisse (x)
 // height;  // ordonnée (y)
 
+// traduction en pixel ecran des coordonnees iso selon les coordonnes origine
 void	convert_point_iso(t_point *p)
 {
-	p->x_iso = (p->x - p->y) * cos(ANGLE);
-	p->y_iso = (p->x + p->y) * sin(ANGLE) - p->z;
+	p->x_iso = ORIGIN_X + SCALE * ((p->x - p->y) * cos(ANGLE));
+	p->y_iso = ORIGIN_Y + SCALE * ((p->x + p->y) * sin(ANGLE) - p->z);
 }
 
-void	convert_iso(t_map *map)
+void	convert_scale(t_map *map)
 {
 	unsigned int	x;
 	unsigned int	y;
