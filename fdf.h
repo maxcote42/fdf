@@ -29,12 +29,12 @@
 
 typedef struct s_point
 {
-	int		x;
-	int		y;
-	int		z;
-	int		color;
-	float	x_iso;
-	float	y_iso;
+	int	x;
+	int	y;
+	int	z;
+	int	color;
+	int	x_iso;
+	int	y_iso;
 }	t_point;
 
 // width;   // abscisse (x)

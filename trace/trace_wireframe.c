@@ -31,7 +31,7 @@ static void	vertical_line(void *win, void *mlx, t_point *p1, t_point *p2)
 	color = p1->color;
 	while (y != (p2->y_iso + step))
 	{
-		draw_pixel(win, mlx, (int)p1->x_iso, y, (int)color);
+		mlx_pixel_put(mlx, win, p1->x_iso, y, color);
 		y += step;
 		color += step_color;
 	}
@@ -53,7 +53,7 @@ static void	horizontal_line(void *win, void *mlx, t_point *p1, t_point *p2)
 	color = p1->color;
 	while (x != (p2->x_iso + step))
 	{
-		draw_pixel(win, mlx, x, (int)p1->y_iso, color);
+		mlx_pixel_put(mlx, win, x, p1->y_iso, color);
 		x += step;
 		color += step_color;
 	}
@@ -62,7 +62,7 @@ static void	horizontal_line(void *win, void *mlx, t_point *p1, t_point *p2)
 static void	init_line(void *win, void *mlx, t_point *p1, t_point *p2)
 {
 	if ((p1->x_iso == p2->x_iso) && (p1->y_iso == p2->y_iso))
-		draw_pixel(win, mlx, (int)p1->x_iso, (int)p1->y_iso, p1->color);
+		mlx_pixel_put(mlx, win, p1->x_iso, p1->y_iso, p1->color);
 	else if (p1->x_iso == p2->x_iso)
 		vertical_line(win, mlx, p1, p2);
 	else if (p1->y_iso == p2->y_iso)
