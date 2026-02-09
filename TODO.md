@@ -10,6 +10,7 @@
 ## TRACER
 
 [] Determiner le point de depart et l'echelle pris (en pixel)
+    --> faire une variable scale modifiable
 [] Conversion isometrique
 [] Couleur gradient
 [] Tracer lignes

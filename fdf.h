@@ -16,8 +16,13 @@
 # include <stdlib.h>
 # include <fcntl.h>
 # include <unistd.h>
+# include <math.h>
 # include "libft.h"
 # include "mlx.h"
+
+#define ANGLE 0.523599
+// 30° en radians
+#define SCALE 20
 
 typedef struct s_point
 {
@@ -25,6 +30,8 @@ typedef struct s_point
 	int	y;
 	int	z;
 	int	color;
+	int	x_iso;
+	int	y_iso;
 }	t_point;
 
 // width;   // abscisse (x)
@@ -45,5 +52,7 @@ void	free_tab(char **tab);
 void	free_map(t_point **points, int height);
 int		hex_to_int(char *hex);
 int		iswhitespace(char c);
+
+// trace
 
 #endif

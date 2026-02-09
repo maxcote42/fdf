@@ -24,6 +24,9 @@ int	main(int argc, char **argv)
 	void	*mlx = mlx_init();
 	void	*win = mlx_new_window(mlx, 900, 1200, "fdf");
 
+	if (trace_wireframe(map, win, mlx) == 1)
+
+
 	free_map(map.points, map.height);
 
 	return (0);
