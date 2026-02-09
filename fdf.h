@@ -51,10 +51,12 @@ int		parse_map(char *file, t_map *map);
 int		fill_map(char *file, t_map *map);
 
 // utils
+void	convert_iso(t_map *map);
 void	free_tab(char **tab);
 void	free_map(t_point **points, int height);
 int		hex_to_int(char *hex);
 int		iswhitespace(char c);
+int		ft_fraction(t_point *p1, t_point *p2);
 
 // trace
 
