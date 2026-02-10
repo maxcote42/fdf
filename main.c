@@ -29,7 +29,7 @@ int	main(int argc, char **argv)
 	trace_wireframe(&app);
 	mlx_put_image_to_window(app.mlx, app.win, app.image.img, 0, 0)
 
-	mlx_hook // a faire pour fermer 
+	// mlx_hook a faire pour fermer 
 	mlx_loop(app.mlx);
 	free_map(map.points, map.height);
 	return (0);

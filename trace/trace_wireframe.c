@@ -12,15 +12,29 @@
 
 #include "../fdf.h"
 
-// width;   // abscisse (x)
-// height;  // ordonnée (y)
+// on va chercher l'adresse du pixel voulu
+// on lui attribue la couleur souhaitee
+// bpp bits per pixel et 1 octet = 8 bits donc on divise pour passer en octet
+// line_len = bytes par ligne de l'image
+static void	add_pixel(t_image *img, int x, int y, int color)
+{
+	char	*pixel;
+
+	if (x < 0 || y < 0 || x >= SCREEN_X || y >= SCREEN_Y)
+		return ;
+	pixel = img->addr + (y * img->line_len + x * (img->bpp / 8));
+	*(unsigned int *)pixel = color;
+}
+
 
 void	trace_wireframe(t_app *app)
 {
-	int	x;
-	int	y;
-	int	height;
-	int	width;
+	unsigned int	x;
+	unsigned int	y;
+	int				height;
+	int				width;
+	int 			img_x;
+	int				img_y;
 
 	height = app->map.height;
 	width = app->map.width;
@@ -30,12 +44,17 @@ void	trace_wireframe(t_app *app)
 		x = 0;
 		while (x < width)
 		{
-			if (x < width - 1)
-				trace_line(&app->map.points[y][x], &app->map.points[y][x + 1]);
-			if (y < height - 1)
-				trace_line(&app->map->points[y][x], &app->map->points[y + 1][x]);
+			img_x = (int)app->map.points[y][x].x_iso;
+			img_y = (int)app->map.points[y][x].y_iso;
+			add_pixel(&app->image, img_x, img_y, app->map.points[y][x].color);
 			x++;
 		}
 		y++;
-	}*/
+	}
 }
+
+/*			if (x < width - 1)
+				add_pixel(app->img, app->map);
+			if (y < height - 1)
+				add_pixel();
+				*/

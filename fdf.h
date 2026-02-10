@@ -80,7 +80,6 @@ int		ft_fraction(t_point *p1, t_point *p2);
 float	step_color(t_point *p1, t_point *p2);
 
 // trace
-void	trace_wireframe(t_map *map, void *win, void *mlx);
-void	trace_line(void *mlx, void *win, t_point *p1, t_point *p2);
+void	trace_wireframe(t_app *app);
 
 #endif
