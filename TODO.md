@@ -22,3 +22,6 @@
 ## README
 
 [] Rediger
+
+ne pas oublier de retirer #include <stdio.h>
+ne pas oublier les flags -wall-werror-wextra

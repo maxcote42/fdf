@@ -16,7 +16,7 @@
 // height;  // ordonnée (y)
 
 // traduction en pixel ecran des coordonnees iso selon les coordonnes origine
-void	convert_point_iso(t_point *p)
+static void	convert_point_iso(t_point *p)
 {
 	p->x_iso = ORIGIN_X + SCALE * ((p->x - p->y) * cos(ANGLE));
 	p->y_iso = ORIGIN_Y + SCALE * ((p->x + p->y) * sin(ANGLE) - p->z);

@@ -64,5 +64,6 @@ int	parse_map(char *file, t_map *map)
 		return (1);
 	if (fill_map(file, map) == 1)
 		return (1);
+	convert_scale(&map);
 	return (0);
 }

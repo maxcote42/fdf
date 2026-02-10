@@ -12,25 +12,29 @@
 
 #include "fdf.h"
 
+
 int	main(int argc, char **argv)
 {
-	t_map	map;
+	t_app	app;
 
 	if (argc != 2)
 		return (1);
-	if (parse_map(argv[1], &map) == 1)
+	if (parse_map(argv[1], &app.map) == 1)
 		return (1);
+	app.mlx = mlx_init();
+	app.win = mlx_new_window(app.mlx, SCREEN_X, SCREEN_Y, "fdf");
+	app->image.img = mlx_new_image(app->mlx, SCREEN_X, SCREEN_Y);
+	app->image.addr = mlx_get_data_addr(app->image.img, &app->image.bpp,
+					&app->image.line_len, &app->image.endian);
+	trace_wireframe(&app);
+	mlx_put_image_to_window(app.mlx, app.win, app.image.img, 0, 0)
 
-	void	*mlx = mlx_init();
-	void	*win = mlx_new_window(mlx, 900, 1200, "fdf");
-
-	trace_wireframe(map, win, mlx);
-
-
+	mlx_hook // a faire pour fermer 
+	mlx_loop(app.mlx);
 	free_map(map.points, map.height);
-
 	return (0);
 }
+
 
 /*
 // TEST PARSING
@@ -62,6 +66,22 @@ int	main(int argc, char **argv)
 			x++;
 		}
 		ft_printf("\n");
+		y++;
+	}
+
+// Affichage ISO MAP (coordonnées x_iso, y_iso)
+	printf("\n=== ISO MAP ===\n");
+	convert_scale(&map); // applique conversion iso
+	y = 0;
+	while (y < map.height)
+	{
+		x = 0;
+		while (x < map.width)
+		{
+			printf("(%0.f,%0.f) ", map.points[y][x].x_iso, map.points[y][x].y_iso);
+			x++;
+		}
+		printf("\n");
 		y++;
 	}
 */

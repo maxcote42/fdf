@@ -15,73 +15,15 @@
 // width;   // abscisse (x)
 // height;  // ordonnée (y)
 
-//dx = 0
-static void	vertical_line(void *win, void *mlx, t_point *p1, t_point *p2)
-{
-	int		y;
-	int		step;
-	float	color;
-	int		step_col;
-
-	step = 1;
-	if (p1->y_iso > p2->y_iso)
-		step = -1;
-	y = p1->y_iso;
-	step_col = step_color(p1, p2);
-	color = p1->color;
-	while (y != (p2->y_iso + step))
-	{
-		mlx_pixel_put(mlx, win, p1->x_iso, y, color);
-		y += step;
-		color += step_col;
-	}
-}
-
-//dy = 0
-static void	horizontal_line(void *win, void *mlx, t_point *p1, t_point *p2)
-{
-	int	x;
-	int	step;
-	int	color;
-	int	step_col;
-
-	step = 1;
-	if (p1->x_iso > p2->x_iso)
-		step = -1;
-	x = p1->x_iso;
-	step_col = step_color(p1, p2);
-	color = p1->color;
-	while (x != (p2->x_iso + step))
-	{
-		mlx_pixel_put(mlx, win, x, p1->y_iso, color);
-		x += step;
-		color += step_col;
-	}
-}
-
-static void	init_line(void *win, void *mlx, t_point *p1, t_point *p2)
-{
-	mlx_pixel_put(mlx, win, p1->x_iso, p1->y_iso, p1->color);
-	if ((p1->x_iso == p2->x_iso) && (p1->y_iso == p2->y_iso))
-		return ;
-	else if (p1->x_iso == p2->x_iso)
-		vertical_line(win, mlx, p1, p2);
-	else if (p1->y_iso == p2->y_iso)
-		horizontal_line(win, mlx, p1, p2);
-	else
-		trace_line(win, mlx, p1, p2);
-}
-
-void	trace_wireframe(t_map *map, void *win, void *mlx)
+void	trace_wireframe(t_app *app)
 {
 	int	x;
 	int	y;
 	int	height;
 	int	width;
 
-	height = map->height;
-	width = map->width;
-	convert_scale(map);
+	height = app->map.height;
+	width = app->map.width;
 	y = 0;
 	while (y < height)
 	{
@@ -89,11 +31,11 @@ void	trace_wireframe(t_map *map, void *win, void *mlx)
 		while (x < width)
 		{
 			if (x < width - 1)
-				init_line(win, mlx, &map->points[y][x], &map->points[y][x + 1]);
+				trace_line(&app->map.points[y][x], &app->map.points[y][x + 1]);
 			if (y < height - 1)
-				init_line(win, mlx, &map->points[y][x], &map->points[y + 1][x]);
+				trace_line(&app->map->points[y][x], &app->map->points[y + 1][x]);
 			x++;
 		}
 		y++;
-	}
+	}*/
 }
