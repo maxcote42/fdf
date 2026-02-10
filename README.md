@@ -7,3 +7,4 @@ https://elearning.intra.42.fr/notions/minilibx/subnotions/mlx-introduction/video
 https://elearning.intra.42.fr/notions/minilibx/subnotions/mlx-events/videos/minilibx-events
 https://medium.com/@amehri_tarik/fdf-42-a-detailed-walkthrough-7184cca317fc
 https://fr.wikipedia.org/wiki/Perspective_isom%C3%A9trique
+https://www.youtube.com/watch?v=Frl1cLwfs1U

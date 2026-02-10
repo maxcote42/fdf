@@ -12,8 +12,8 @@
 [x] Determiner le point de depart et l'echelle pris (en pixel)
     --> faire une variable scale modifiable
 [x] Conversion isometrique
-[] Couleur gradient
-[] Tracer lignes
+[x] Couleur gradient
+[x] Tracer lignes
 
 ## EVENTS
 
