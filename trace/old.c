@@ -1,4 +1,4 @@
-//dx = 0
+/*//dx = 0
 static void	vertical_line(void *win, void *mlx, t_point *p1, t_point *p2)
 {
 	int		y;
@@ -53,4 +53,4 @@ static void	init_line(void *win, void *mlx, t_point *p1, t_point *p2)
 		horizontal_line(win, mlx, p1, p2);
 	else
 		trace_line(win, mlx, p1, p2);
-}
+}*/

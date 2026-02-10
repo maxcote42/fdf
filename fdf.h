@@ -49,14 +49,14 @@ typedef struct s_map
 	t_point			**points;
 }	t_map;
 
-typdef struct s_image
+typedef struct s_image
 {
 	void	*img;
 	char	*addr;
 	int		bpp;
 	int		line_len;
 	int		endian;
-}	t_image
+}	t_image;
 
 typedef struct s_app
 {
