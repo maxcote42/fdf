@@ -74,6 +74,10 @@ typedef struct s_app
 	t_image	image;
 	void	*mlx;
 	void	*win;
+	double	scale;
+	double	origin_x;
+	double	origin_y;
+	double	angle;
 }	t_app;
 
 // parsing
@@ -81,7 +85,7 @@ int		parse_map(char *file, t_map *map);
 int		fill_map(char *file, t_map *map);
 
 // utils
-void	convert_scale(t_map *map);
+void	convert_scale(t_app *app);
 void	free_tab(char **tab);
 void	free_map(t_point **points, int height);
 int		hex_to_int(char *hex);

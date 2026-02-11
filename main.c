@@ -12,6 +12,13 @@
 
 #include "fdf.h"
 
+void	init_variables(t_app *app)
+{
+	app->angle = 0.523599;
+	app->scale = 30;
+	app->origin_x = SCREEN_X / 2;
+	app->origin_y = SCREEN_Y / 2;
+}
 
 
 int	main(int argc, char **argv)
@@ -21,6 +28,7 @@ int	main(int argc, char **argv)
 	if (argc != 2)
 		return (1);
 
+	init_variables(&app);
 	if (parse_map(argv[1], &app.map) == 1)
 		return (1);
 	app.mlx = mlx_init();
@@ -29,10 +37,11 @@ int	main(int argc, char **argv)
 	app.image.addr = mlx_get_data_addr(app.image.img, &app.image.bpp,
 					&app.image.line_len, &app.image.endian);
 	trace_wireframe(&app);
-	free_map(app.map.points, app.map.height);
+	
 	mlx_put_image_to_window(app.mlx, app.win, app.image.img, 0, 0);
 	setup_hooks(&app);
 	mlx_loop(app.mlx);
+	free_map(app.map.points, app.map.height);
 	return (0);
 }
 

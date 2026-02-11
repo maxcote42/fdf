@@ -12,7 +12,7 @@
 [x] Determiner le point de depart et l'echelle pris (en pixel)
     --> faire une variable scale modifiable
 [x] Conversion isometrique
-[] Couleur gradient
+[] Couleur gradient a revoir
 [x] Tracer lignes
 
 ## EVENTS
@@ -27,3 +27,5 @@
 [] ne pas oublier les flags -wall-werror-wextra
 [] x et y iso en float ?
 [] revoir les couleurs pour etre sur
+[] variable globale
+[] pourquoi double pour la structure de s app

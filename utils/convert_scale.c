@@ -16,24 +16,24 @@
 // height;  // ordonnée (y)
 
 // traduction en pixel ecran des coordonnees iso selon les coordonnes origine
-static void	convert_point_iso(t_point *p)
+static void	convert_point_iso(t_app *app, t_point *p)
 {
-	p->x_iso = ORIGIN_X + SCALE * ((p->x - p->y) * cos(ANGLE));
-	p->y_iso = ORIGIN_Y + SCALE * ((p->x + p->y) * sin(ANGLE) - p->z);
+	p->x_iso = app->origin_x + app->scale * ((p->x - p->y) * cos(app->angle));
+	p->y_iso = app->origin_y + app->scale * ((p->x + p->y) * sin(app->angle) - p->z);
 }
 
-void	convert_scale(t_map *map)
+void	convert_scale(t_app *app)
 {
 	unsigned int	x;
 	unsigned int	y;
 
 	y = 0;
-	while (y < map->height)
+	while (y < app->map.height)
 	{
 		x = 0;
-		while (x < map->width)
+		while (x < app->map.width)
 		{
-			convert_point_iso(&map->points[y][x]);
+			convert_point_iso(app, &app->map.points[y][x]);
 			x++;
 		}
 		y++;

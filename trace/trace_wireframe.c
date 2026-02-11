@@ -69,6 +69,7 @@ void	trace_wireframe(t_app *app)
 	unsigned int	height;
 	unsigned int	width;
 
+	convert_scale(app);
 	height = app->map.height;
 	width = app->map.width;
 	y = 0;
