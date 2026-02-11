@@ -28,11 +28,11 @@ static void	add_pixel(t_image *img, int x, int y, int color)
 
 static void	init_bresenham(t_algo *br, t_point a, t_point b)
 {
-	br.dx = abs(b.x_iso - a.x_iso);
-	br.dy = abs(b.y_iso - a.y_iso);
-	br.sx = ft_sign(b.x_iso - a.x_iso);
-	br.sy = ft_sign(b.y_iso - a.y_iso);
-	br.err = br.dx - br.dy;
+	br->dx = abs(b.x_iso - a.x_iso);
+	br->dy = abs(b.y_iso - a.y_iso);
+	br->sx = ft_sign(b.x_iso - a.x_iso);
+	br->sy = ft_sign(b.y_iso - a.y_iso);
+	br->err = br->dx - br->dy;
 }
 
 static void	trace_line(t_app *app, t_point a, t_point b)
@@ -47,7 +47,7 @@ static void	trace_line(t_app *app, t_point a, t_point b)
 		add_pixel(&app->image, a.x_iso, a.y_iso, a.color);
 		if (a.x_iso == b.x_iso && a.y_iso == b.y_iso)
 			break ;
-		a.color += step_color;
+		a.color += color_step;
 		br.e2 = 2 * br.err;
 		if (br.e2 > -br.dy)
 		{
@@ -59,19 +59,15 @@ static void	trace_line(t_app *app, t_point a, t_point b)
 			br.err += br.dx;
 			a.y_iso += br.sy;
 		}
-
-
 	}
-
-
 }
 
 void	trace_wireframe(t_app *app)
 {
 	unsigned int	x;
 	unsigned int	y;
-	int				height;
-	int				width;
+	unsigned int	height;
+	unsigned int	width;
 
 	height = app->map.height;
 	width = app->map.width;
@@ -82,18 +78,14 @@ void	trace_wireframe(t_app *app)
 		while (x < width)
 		{
 			if (x < width - 1)
-				trace_line(app, app.map.points[y][x], app.map.points[y][x + 1]);
+				trace_line(app, app->map.points[y][x], app->map.points[y][x + 1]);
 			if (y < height - 1)
-				trace_line(app, app.map.points[y][x], app.map.points[y + 1][x]);
+				trace_line(app, app->map.points[y][x], app->map.points[y + 1][x]);
 			x++;
 		}
 		y++;
 	}
 }
-
-
-
-
 
 /* ------------------------16h
 static void	init_bresenham(t_algo *br, t_point a, t_point b)
@@ -206,7 +198,7 @@ void	trace_wireframe(t_app *app)
 	}
 }
 
-/*			if (x < width - 1)
+			if (x < width - 1)
 				add_pixel(app->img, app->map);
 			if (y < height - 1)
 				add_pixel();

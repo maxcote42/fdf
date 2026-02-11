@@ -23,6 +23,6 @@ int	step_color(t_point p1, t_point p2)
 	dcolor = p2.color - p1.color;
 	if (count_pixel == 0)
 		return (0);
-	int = (dcolor / count_pixel);
+	step = (dcolor / count_pixel);
 	return (step);
 }

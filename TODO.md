@@ -12,7 +12,7 @@
 [x] Determiner le point de depart et l'echelle pris (en pixel)
     --> faire une variable scale modifiable
 [x] Conversion isometrique
-[x] Couleur gradient
+[] Couleur gradient
 [x] Tracer lignes
 
 ## EVENTS
@@ -23,6 +23,7 @@
 
 [] Rediger
 
-ne pas oublier de retirer #include <stdio.h>
-ne pas oublier les flags -wall-werror-wextra
-x et y iso en float ?
+[] ne pas oublier de retirer #include <stdio.h>
+[] ne pas oublier les flags -wall-werror-wextra
+[] x et y iso en float ?
+[] revoir les couleurs pour etre sur
