@@ -17,7 +17,7 @@
 
 ## EVENTS
 
-[] Pouvoir quitter avec ESC ou la croix
+[x] Pouvoir quitter avec ESC ou la croix
 
 ## README
 

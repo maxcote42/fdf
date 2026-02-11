@@ -89,6 +89,7 @@ int		iswhitespace(char c);
 int		ft_fraction(t_point p1, t_point p2);
 int		step_color(t_point p1, t_point p2);
 int		ft_sign(int c);
+void	setup_hooks(t_app *app);
 
 // trace
 void	trace_wireframe(t_app *app);

@@ -13,6 +13,7 @@
 #include "fdf.h"
 
 
+
 int	main(int argc, char **argv)
 {
 	t_app	app;
@@ -28,11 +29,10 @@ int	main(int argc, char **argv)
 	app.image.addr = mlx_get_data_addr(app.image.img, &app.image.bpp,
 					&app.image.line_len, &app.image.endian);
 	trace_wireframe(&app);
-	mlx_put_image_to_window(app.mlx, app.win, app.image.img, 0, 0);
-
-	// mlx_hook a faire pour fermer 
-	mlx_loop(app.mlx);
 	free_map(app.map.points, app.map.height);
+	mlx_put_image_to_window(app.mlx, app.win, app.image.img, 0, 0);
+	setup_hooks(&app);
+	mlx_loop(app.mlx);
 	return (0);
 }
 
