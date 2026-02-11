@@ -34,12 +34,12 @@
 
 typedef struct s_point
 {
-	int		x;
-	int		y;
-	int		z;
-	int		color;
-	float	x_iso;
-	float	y_iso;
+	int	x;
+	int	y;
+	int	z;
+	int	color;
+	int	x_iso;
+	int	y_iso;
 }	t_point;
 
 typedef struct s_map
@@ -57,6 +57,16 @@ typedef struct s_image
 	int		line_len;
 	int		endian;
 }	t_image;
+
+typedef struct s_algo
+{
+	int dx;
+	int dy;
+	int sx;
+	int sy;
+	int err;
+	int e2;
+}	t_algo;
 
 typedef struct s_app
 {
@@ -78,6 +88,7 @@ int		hex_to_int(char *hex);
 int		iswhitespace(char c);
 int		ft_fraction(t_point *p1, t_point *p2);
 float	step_color(t_point *p1, t_point *p2);
+int		ft_sign(int c);
 
 // trace
 void	trace_wireframe(t_app *app);

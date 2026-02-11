@@ -13,16 +13,16 @@
 #include "../fdf.h"
 
 // represente le step de color pour passer de p1 a p2
-float	step_color(t_point *p1, t_point *p2)
+int	step_color(t_point p1, t_point p2)
 {
 	int	count_pixel;
 	int	dcolor;
-	float	step;
+	int	step;
 
 	count_pixel = ft_fraction(p1, p2);
-	dcolor = p2->color - p1->color;
+	dcolor = p2.color - p1.color;
 	if (count_pixel == 0)
 		return (0);
-	step = (dcolor / count_pixel);
+	int = (dcolor / count_pixel);
 	return (step);
 }

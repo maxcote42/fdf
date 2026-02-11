@@ -1,6 +1,6 @@
 NAME = fdf
 CC = cc
-CFLAGS = -Ilibft
+CFLAGS = -Wall -Wextra -Werror -Ilibft
 
 LIBFT_PATH = libft
 LIBFT = $(LIBFT_PATH)/libft.a
