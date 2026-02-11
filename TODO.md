@@ -23,9 +23,9 @@
 
 [] Rediger
 
-[] ne pas oublier de retirer #include <stdio.h>
-[] ne pas oublier les flags -wall-werror-wextra
-[] x et y iso en float ?
+[x] ne pas oublier de retirer #include <stdio.h>
+[x] ne pas oublier les flags -wall-werror-wextra
+[x] x et y iso en float ?
 [] revoir les couleurs pour etre sur
 [] variable globale
 [] pourquoi double pour la structure de s app
