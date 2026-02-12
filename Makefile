@@ -1,48 +1,49 @@
 NAME = fdf
+
 CC = cc
+CFLAGS = -Wall -Wextra -Werror
 
-MLX_PATH = minilibx-linux
-LIBFT_PATH = libft
+SRCDIR = src
+INCDIR = includes
+OBJDIR = obj
+LIBFT_DIR = libft
+MLX_DIR = minilibx-linux
 
-CFLAGS = -Wall -Wextra -Werror \
-         -I$(LIBFT_PATH) \
-         -Iincludes \
-         -I$(MLX_PATH)
+LIBFT = $(LIBFT_DIR)/libft.a
+MLX = $(MLX_DIR)/libmlx.a
 
-LIBFT = $(LIBFT_PATH)/libft.a
-MLX = $(MLX_PATH)/libmlx.a
-
-SRCS = $(wildcard *.c) \
-       $(wildcard src/*.c) \
+SRCS = $(wildcard src/*.c) \
        $(wildcard src/utils/*.c)
+OBJS = $(SRCS:%.c=$(OBJDIR)/%.o)
 
-OBJS = $(SRCS:.c=.o)
+INCLUDES = -I$(INCDIR) -I$(LIBFT_DIR) -I$(MLX_DIR)
 
-all: $(LIBFT) $(MLX) $(NAME)
+MLX_FLAGS = -L$(MLX_DIR) -lmlx -lXext -lX11 -lm -lz
+LIBFT_FLAGS = -L$(LIBFT_DIR) -lft
+
+all: $(NAME)
+
+$(NAME): $(LIBFT) $(MLX) $(OBJS)
+	$(CC) $(CFLAGS) $(OBJS) $(LIBFT_FLAGS) $(MLX_FLAGS) -o $(NAME)
+
+$(OBJDIR)/%.o: %.c
+	@mkdir -p $(dir $@)
+	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
 $(LIBFT):
-	make -C $(LIBFT_PATH)
+	$(MAKE) -C $(LIBFT_DIR)
 
 $(MLX):
-	make -C $(MLX_PATH)
-
-$(NAME): $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) \
-		-L$(LIBFT_PATH) -lft \
-		-L$(MLX_PATH) -lmlx -lXext -lX11 -lm \
-		-o $(NAME)
-
-%.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+	$(MAKE) -C $(MLX_DIR)
 
 clean:
-	rm -f $(OBJS)
-	make -C $(LIBFT_PATH) clean
-	make -C $(MLX_PATH) clean
+	$(MAKE) -C $(LIBFT_DIR) clean
+	$(MAKE) -C $(MLX_DIR) clean
+	rm -rf $(OBJDIR)
 
 fclean: clean
+	$(MAKE) -C $(LIBFT_DIR) fclean
 	rm -f $(NAME)
-	make -C $(LIBFT_PATH) fclean
 
 re: fclean all
 

@@ -19,6 +19,7 @@
 # include <math.h>
 # include "libft.h"
 # include "mlx.h"
+# include <X11/keysym.h>
 
 // definitions primaires
 // 30° en radians

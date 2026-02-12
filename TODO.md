@@ -29,3 +29,4 @@
 [] revoir les couleurs pour etre sur
 [] variable globale
 [] pourquoi double pour la structure de s app
+[] # include <X11/keysym.h>
