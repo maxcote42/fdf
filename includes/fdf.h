@@ -61,15 +61,16 @@ typedef struct s_image
 
 typedef struct s_algo
 {
-	int	dx;
-	int	dy;
-	int	sx;
-	int	sy;
-	int	err;
-	int	e2;
+	int		dx;
+	int		dy;
+	int		sx;
+	int		sy;
+	int		err;
+	int		e2;
 	float	step_R;
 	float	step_G;
 	float	step_B;
+	float	color;
 }	t_algo;
 
 typedef struct s_app
@@ -94,10 +95,12 @@ void	free_tab(char **tab);
 void	free_map(t_point **points, int height);
 int		hex_to_int(char *hex);
 int		iswhitespace(char c);
-int		ft_fraction(t_point p1, t_point p2);
-int		step_color(t_point p1, t_point p2);
 int		ft_sign(int c);
 void	setup_hooks(t_app *app);
+void	init_color(t_algo *br, t_point a, t_point b);
+void	init_bresenham(t_algo *br, t_point a, t_point b);
+void	color_step(t_algo *br, int *color);
+
 
 // trace
 void	trace_wireframe(t_app *app);

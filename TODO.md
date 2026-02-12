@@ -1,6 +1,7 @@
 ## PARSING
 
-[] Checker la map, bonnes longueurs, et que des chiffres
+[] Checker la map :bonnes longueurs --> A TESTER
+[] que des chiffres --> CONSIDERE BONS
 
 ## INITIALISATION
 
@@ -12,7 +13,7 @@
 [x] Determiner le point de depart et l'echelle pris (en pixel)
     --> faire une variable scale modifiable
 [x] Conversion isometrique
-[] Couleur gradient a revoir
+[] Couleur gradient a revoir --> A TESTER
 [x] Tracer lignes
 
 ## EVENTS
@@ -26,7 +27,7 @@
 [x] ne pas oublier de retirer #include <stdio.h>
 [x] ne pas oublier les flags -wall-werror-wextra
 [x] x et y iso en float ?
-[] revoir les couleurs pour etre sur
+[] revoir les couleurs pour etre sur --> A TESTER
 [] variable globale
 [] pourquoi double pour la structure de s app
 [] # include <X11/keysym.h>

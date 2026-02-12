@@ -15,7 +15,7 @@
 // width;   // abscisse (x)
 // height;  // ordonnée (y)
 
-// traduction en pixel ecran des coordonnees iso selon les coordonnes origine
+// traduction en pixel ecran des coordonnees iso selon les coordonnees origine
 static void	convert_point_iso(t_app *app, t_point *p)
 {
 	p->x_iso = app->origin_x + app->scale * ((p->x - p->y) * cos(app->angle));
