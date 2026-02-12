@@ -26,6 +26,21 @@ static void	add_pixel(t_image *img, int x, int y, int color)
 	*(unsigned int *)pixel = color;
 }
 
+static void	init_color(t_algo *br, t_point a, t_point b)
+{
+	int	fraction;
+
+	if (br->dx > br->dy)
+		fraction = br->dx;
+	else
+		fraction = br->dy;
+	if (fraction == 0)
+		return ;
+	br->step_R = ((((b.color >> 16) & 0xFF) - ((a.color >> 16) & 0xFF))) / fraction;
+	br->step_G = (((b.color >> 8) & 0xFF) - ((a.color >> 8) & 0xFF)) / fraction;
+	br->step_B = ((b.color & 0xFF) - (a.color & 0xFF)) / fraction ;
+}
+
 static void	init_bresenham(t_algo *br, t_point a, t_point b)
 {
 	br->dx = abs(b.x_iso - a.x_iso);
@@ -33,21 +48,36 @@ static void	init_bresenham(t_algo *br, t_point a, t_point b)
 	br->sx = ft_sign(b.x_iso - a.x_iso);
 	br->sy = ft_sign(b.y_iso - a.y_iso);
 	br->err = br->dx - br->dy;
+	init_color(br, a, b);
+}
+
+static void	color_step(t_algo br, int *color)
+{
+	float	R;
+	float	G;
+	float	B;
+	float	new_color;
+
+	R = (*color >> 16 & 0xFF) + br.step_R;
+	G = (*color >> 8 & 0xFF) + br.step_G;
+	B = (*color & 0xFF) + br.step_B;
+	new_color = R * 256 * 256 + G * 256 + B;
+	*color = (int)new_color;
 }
 
 static void	trace_line(t_app *app, t_point a, t_point b)
 {
-	int		color_step;
+	int		color;
 	t_algo	br;
 
 	init_bresenham(&br, a, b);
-	color_step = step_color(a, b);
+	color = a.color;
 	while (1)
 	{
-		add_pixel(&app->image, a.x_iso, a.y_iso, a.color);
+		add_pixel(&app->image, a.x_iso, a.y_iso, color);
 		if (a.x_iso == b.x_iso && a.y_iso == b.y_iso)
 			break ;
-		a.color += color_step;
+		color_step(br, &color);
 		br.e2 = 2 * br.err;
 		if (br.e2 > -br.dy)
 		{

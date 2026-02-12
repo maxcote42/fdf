@@ -15,7 +15,7 @@
 void	init_variables(t_app *app)
 {
 	app->angle = 0.523599;
-	app->scale = 30;
+	app->scale = 10;
 	app->origin_x = SCREEN_X / 2;
 	app->origin_y = SCREEN_Y / 2;
 }

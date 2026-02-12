@@ -67,6 +67,9 @@ typedef struct s_algo
 	int	sy;
 	int	err;
 	int	e2;
+	float	step_R;
+	float	step_G;
+	float	step_B;
 }	t_algo;
 
 typedef struct s_app
