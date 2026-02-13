@@ -14,15 +14,17 @@
 
 static int	handle_close(t_app *app)
 {
+	mlx_destroy_image(app->mlx, app->image.img);
 	mlx_destroy_window(app->mlx, app->win);
 	exit(0);
 	return (0);
 }
 
-static int	handle_esc(int keycode, t_app *app)
+static int	handle_cmd(int keycode, t_app *app)
 {
 	if (keycode == XK_Escape)
 	{
+		mlx_destroy_image(app->mlx, app->image.img);
 		mlx_destroy_window(app->mlx, app->win);
 		exit(0);
 	}
@@ -31,20 +33,24 @@ static int	handle_esc(int keycode, t_app *app)
 	else if (keycode == XK_w && app->scale > 0.01)
 		app->scale /= 1.1;
 	else if (keycode == XK_Left && app->origin_x > -5000)
-		app->origin_x -= 20;
-	else if (keycode == XK_Right && app->origin_x < 5000)
 		app->origin_x += 20;
+	else if (keycode == XK_Right && app->origin_x < 5000)
+		app->origin_x -= 20;
 	else if (keycode == XK_Down && app->origin_y < 5000)
-		app->origin_y += 20;
-	else if (keycode == XK_Up && app->origin_y > -5000)
 		app->origin_y -= 20;
-	mlx_destroy_image(app->mlx, app->image.img);
-	draw(app);
+	else if (keycode == XK_Up && app->origin_y > -5000)
+		app->origin_y += 20;
+	if (keycode == XK_Escape || keycode == XK_t || keycode == XK_w || keycode == XK_Left
+		|| keycode == XK_Right || keycode == XK_Down || keycode == XK_Up)
+	{	
+		mlx_destroy_image(app->mlx, app->image.img);
+		draw(app);
+	}
 	return (0);
 }
 
 void	setup_hooks(t_app *app)
 {
-	mlx_key_hook(app->win, handle_esc, app);
-	mlx_hook(app->win, 17, 0L, handle_close, app);
+	mlx_key_hook(app->win, handle_cmd, app);
+	mlx_hook(app->win, 17, 0, handle_close, app);
 }

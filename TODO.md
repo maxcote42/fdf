@@ -26,5 +26,5 @@
 [x] x et y iso en float ?
 [x] revoir les couleurs pour etre sur --> A TESTER
 [] variable globale
-[] pourquoi double pour la structure de s app
-[] # include <X11/keysym.h>
+[x] pourquoi double pour la structure de s app
+[x] # include <X11/keysym.h>
