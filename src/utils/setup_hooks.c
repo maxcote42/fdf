@@ -21,29 +21,25 @@ static int	handle_close(t_app *app)
 
 static int	handle_esc(int keycode, t_app *app)
 {
-	if (keycode == 65307 || keycode == 53)
+	if (keycode == XK_Escape)
 	{
 		mlx_destroy_window(app->mlx, app->win);
 		exit(0);
 	}
-	else if (keycode == 61)
+	else if (keycode == XK_t && app->scale < 10000)
 		app->scale *= 1.1;
-	else if (keycode == 45)
+	else if (keycode == XK_w && app->scale > 0.01)
 		app->scale /= 1.1;
-	else if (keycode == 65361)
-		app->origin_x += 20;
-	else if (keycode == 65363)
+	else if (keycode == XK_Left && app->origin_x > -5000)
 		app->origin_x -= 20;
-	else if (keycode == 65361)
+	else if (keycode == XK_Right && app->origin_x < 5000)
+		app->origin_x += 20;
+	else if (keycode == XK_Down && app->origin_y < 5000)
 		app->origin_y += 20;
-	else if (keycode == 65361)
+	else if (keycode == XK_Up && app->origin_y > -5000)
 		app->origin_y -= 20;
 	mlx_destroy_image(app->mlx, app->image.img);
-	app->image.img = mlx_new_image(app->mlx, SCREEN_X, SCREEN_Y);
-	app->image.addr = mlx_get_data_addr(app->image.img,
-			&app->image.bpp, &app->image.line_len, &app->image.endian);
-	trace_wireframe(app);
-	mlx_put_image_to_window(app->mlx, app->win, app->image.img, 0, 0);
+	draw(app);
 	return (0);
 }
 

@@ -12,12 +12,21 @@
 
 #include "fdf.h"
 
-void	init_variables(t_app *app)
+static void	init_variables(t_app *app)
 {
 	app->angle = 0.523599;
 	app->scale = 10;
 	app->origin_x = SCREEN_X / 2;
 	app->origin_y = SCREEN_Y / 2;
+}
+
+void	draw(t_app *app)
+{
+	app->image.img = mlx_new_image(app->mlx, SCREEN_X, SCREEN_Y);
+	app->image.addr = mlx_get_data_addr(app->image.img,
+			&app->image.bpp, &app->image.line_len, &app->image.endian);
+	trace_wireframe(app);
+	mlx_put_image_to_window(app->mlx, app->win, app->image.img, 0, 0);
 }
 
 int	main(int argc, char **argv)
@@ -31,11 +40,7 @@ int	main(int argc, char **argv)
 	init_variables(&app);
 	app.mlx = mlx_init();
 	app.win = mlx_new_window(app.mlx, SCREEN_X, SCREEN_Y, "fdf");
-	app.image.img = mlx_new_image(app.mlx, SCREEN_X, SCREEN_Y);
-	app.image.addr = mlx_get_data_addr(app.image.img, &app.image.bpp,
-			&app.image.line_len, &app.image.endian);
-	trace_wireframe(&app);
-	mlx_put_image_to_window(app.mlx, app.win, app.image.img, 0, 0);
+	draw(&app);
 	setup_hooks(&app);
 	mlx_loop(app.mlx);
 	free_map(app.map.points, app.map.height);
