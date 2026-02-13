@@ -12,16 +12,16 @@ void	init_color(t_algo *br, t_point a, t_point b)
 	else
 		fraction = (float)br->dy;
 	if (fraction == 0)
-		fraction 1;
+		fraction = 1;
 	dr = ((b.color >> 16) & 0xFF) - ((a.color >> 16) & 0xFF);
 	dg = ((b.color >> 8) & 0xFF) - ((a.color >> 8) & 0xFF);
 	db = (b.color & 0xFF) - (a.color & 0xFF);
 	br->step_R = (float)dr / (float)fraction;
 	br->step_G = (float)dg / (float)fraction;
 	br->step_B = (float)db / (float)fraction;
-	br->init_R = (b.color >> 16) & 0xFF;
-	br->init_G = (b.color >> 8) & 0xFF;
-	br->init_B = b.color & 0xFF;
+	br->init_R = (a.color >> 16) & 0xFF;
+	br->init_G = (a.color >> 8) & 0xFF;
+	br->init_B = a.color & 0xFF;
 }
 
 void	init_bresenham(t_algo *br, t_point a, t_point b)

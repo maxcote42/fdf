@@ -14,10 +14,10 @@
 // height;  // ordonnée (y)
 #include "fdf.h"
 
-static int	count_arg(char *line)
+static unsigned int	count_arg(char *line)
 {
-	int	i;
-	int	count;
+	unsigned int	i;
+	unsigned int	count;
 
 	i = 0;
 	count = 0;

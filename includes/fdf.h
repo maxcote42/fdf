@@ -70,7 +70,9 @@ typedef struct s_algo
 	float	step_R;
 	float	step_G;
 	float	step_B;
-	float	color;
+	float	init_R;
+	float	init_G;
+	float	init_B;
 }	t_algo;
 
 typedef struct s_app

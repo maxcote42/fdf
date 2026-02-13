@@ -70,6 +70,7 @@ void	trace_wireframe(t_app *app)
 		x = 0;
 		while (x < width)
 		{
+
 			if (x < width - 1)
 				trace_line(app, app->map.points[y][x],
 					app->map.points[y][x + 1]);
