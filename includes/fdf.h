@@ -97,5 +97,6 @@ void	color_step(t_algo *br, int *color);
 
 // trace
 void	trace_wireframe(t_app *app);
+void	draw(t_app *app);
 
 #endif
