@@ -21,15 +21,6 @@
 # include "mlx.h"
 # include <X11/keysym.h>
 
-// definitions primaires
-// 30° en radians
-// width;   // abscisse (x)
-// height;  // ordonnée (y)
-
-# define ANGLE 0.523599
-# define SCALE 1
-# define ORIGIN_X 600
-# define ORIGIN_Y 500
 # define SCREEN_X 1200
 # define SCREEN_Y 900
 

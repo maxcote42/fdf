@@ -31,9 +31,13 @@ static int	handle_esc(int keycode, t_app *app)
 	else if (keycode == 45)
 		app->scale /= 1.1;
 	else if (keycode == 65361)
-		app->origin_x -= 20;
-	else if (keycode == 65363)
 		app->origin_x += 20;
+	else if (keycode == 65363)
+		app->origin_x -= 20;
+	else if (keycode == 65361)
+		app->origin_y += 20;
+	else if (keycode == 65361)
+		app->origin_y -= 20;
 	mlx_destroy_image(app->mlx, app->image.img);
 	app->image.img = mlx_new_image(app->mlx, SCREEN_X, SCREEN_Y);
 	app->image.addr = mlx_get_data_addr(app->image.img,

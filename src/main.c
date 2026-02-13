@@ -26,9 +26,9 @@ int	main(int argc, char **argv)
 
 	if (argc != 2)
 		return (1);
-	init_variables(&app);
 	if (parse_map(argv[1], &app.map) == 1)
 		return (1);
+	init_variables(&app);
 	app.mlx = mlx_init();
 	app.win = mlx_new_window(app.mlx, SCREEN_X, SCREEN_Y, "fdf");
 	app.image.img = mlx_new_image(app.mlx, SCREEN_X, SCREEN_Y);

@@ -63,10 +63,7 @@ static int	get_dim(char *file, t_map *map)
 int	parse_map(char *file, t_map *map)
 {
 	if (get_dim(file, map) == 1)
-	{
-		ft_printf("La carte n'est pas correctement dimensionnée\n");
 		return (1);
-	}
 	if (fill_map(file, map) == 1)
 		return (1);
 	return (0);

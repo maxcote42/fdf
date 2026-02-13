@@ -1,7 +1,7 @@
 ## PARSING
 
-[] Checker la map :bonnes longueurs --> A TESTER
-[] que des chiffres --> CONSIDERE BONS
+[x] Checker la map :bonnes longueurs --> A TESTER
+[x] que des chiffres --> CONSIDERE BONS
 
 ## INITIALISATION
 
@@ -21,7 +21,7 @@
 [x] Pouvoir quitter avec ESC ou la croix
 
 
-[] ne pas oublier de retirer #include <stdio.h>
+[x] ne pas oublier de retirer #include <stdio.h>
 [x] ne pas oublier les flags -wall-werror-wextra
 [x] x et y iso en float ?
 [x] revoir les couleurs pour etre sur --> A TESTER
