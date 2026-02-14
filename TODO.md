@@ -28,3 +28,5 @@
 [] variable globale
 [x] pourquoi double pour la structure de s app
 [x] # include <X11/keysym.h>
+[] free 
+[] attention aux traces, printf et flag pour valgrind

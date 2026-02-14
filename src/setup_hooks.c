@@ -16,6 +16,7 @@ static int	handle_close(t_app *app)
 {
 	mlx_destroy_image(app->mlx, app->image.img);
 	mlx_destroy_window(app->mlx, app->win);
+	free_map(app->map.points, app->map.height);
 	exit(0);
 	return (0);
 }
@@ -26,6 +27,7 @@ static int	handle_cmd(int keycode, t_app *app)
 	{
 		mlx_destroy_image(app->mlx, app->image.img);
 		mlx_destroy_window(app->mlx, app->win);
+		free_map(app->map.points, app->map.height);
 		exit(0);
 	}
 	else if (keycode == XK_t && app->scale < 10000)
@@ -40,7 +42,7 @@ static int	handle_cmd(int keycode, t_app *app)
 		app->origin_y -= 20;
 	else if (keycode == XK_Up && app->origin_y > -5000)
 		app->origin_y += 20;
-	if (keycode == XK_Escape || keycode == XK_t || keycode == XK_w || keycode == XK_Left
+	if (keycode == XK_t || keycode == XK_w || keycode == XK_Left
 		|| keycode == XK_Right || keycode == XK_Down || keycode == XK_Up)
 	{	
 		mlx_destroy_image(app->mlx, app->image.img);
