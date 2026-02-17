@@ -30,7 +30,7 @@ static int	handle_cmd(int keycode, t_app *app)
 		free_map(app->map.points, app->map.height);
 		exit(0);
 	}
-	else if (keycode == XK_t && app->scale < 10000)
+	else if (keycode == XK_t && app->scale < 1000)
 		app->scale *= 1.1;
 	else if (keycode == XK_w && app->scale > 0.01)
 		app->scale /= 1.1;
@@ -45,8 +45,8 @@ static int	handle_cmd(int keycode, t_app *app)
 	if (keycode == XK_t || keycode == XK_w || keycode == XK_Left
 		|| keycode == XK_Right || keycode == XK_Down || keycode == XK_Up)
 	{	
-		mlx_destroy_image(app->mlx, app->image.img);
-		draw(app);
+		ft_memset(app->image.addr, 0, SCREEN_X * SCREEN_Y * (app->image.bpp / 8));
+		trace_wireframe(app);
 	}
 	return (0);
 }

@@ -18,9 +18,9 @@
 // traduction en pixel ecran des coordonnees iso selon les coordonnees origine
 static void	convert_point_iso(t_app *app, t_point *p)
 {
-	p->x_iso = app->origin_x + app->scale * ((p->x - p->y) * cos(app->angle));
+	p->x_iso = app->origin_x + app->scale * ((p->x - p->y) * app->cos_radiant);
 	p->y_iso = app->origin_y + app->scale
-		* ((p->x + p->y) * sin(app->angle) - p->z);
+		* ((p->x + p->y) * app->sin_radiant - p->z);
 }
 
 void	convert_scale(t_app *app)

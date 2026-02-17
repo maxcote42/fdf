@@ -29,4 +29,7 @@
 [x] pourquoi double pour la structure de s app
 [x] # include <X11/keysym.h>
 [] free 
-[] attention aux traces, printf et flag pour valgrind
+[] attention aux traces : printf et flag pour valgrind
+[] return 0 ou 1
+[] leak gnl?
+[] separer les bonus

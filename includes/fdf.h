@@ -75,7 +75,8 @@ typedef struct s_app
 	double	scale;
 	double	origin_x;
 	double	origin_y;
-	double	angle;
+	double	cos_radiant;
+	double	sin_radiant;
 }	t_app;
 
 // parsing

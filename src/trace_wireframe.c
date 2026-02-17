@@ -70,7 +70,6 @@ void	trace_wireframe(t_app *app)
 		x = 0;
 		while (x < width)
 		{
-
 			if (x < width - 1)
 				trace_line(app, app->map.points[y][x],
 					app->map.points[y][x + 1]);
@@ -81,4 +80,5 @@ void	trace_wireframe(t_app *app)
 		}
 		y++;
 	}
+	mlx_put_image_to_window(app->mlx, app->win, app->image.img, 0, 0);
 }
