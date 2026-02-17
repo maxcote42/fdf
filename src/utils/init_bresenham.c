@@ -28,12 +28,12 @@ void	init_color(t_algo *br, t_point a, t_point b)
 	dr = ((b.color >> 16) & 0xFF) - ((a.color >> 16) & 0xFF);
 	dg = ((b.color >> 8) & 0xFF) - ((a.color >> 8) & 0xFF);
 	db = (b.color & 0xFF) - (a.color & 0xFF);
-	br->step_R = (float)dr / (float)fraction;
-	br->step_G = (float)dg / (float)fraction;
-	br->step_B = (float)db / (float)fraction;
-	br->init_R = (a.color >> 16) & 0xFF;
-	br->init_G = (a.color >> 8) & 0xFF;
-	br->init_B = a.color & 0xFF;
+	br->step_r = (float)dr / (float)fraction;
+	br->step_g = (float)dg / (float)fraction;
+	br->step_b = (float)db / (float)fraction;
+	br->init_r = (a.color >> 16) & 0xFF;
+	br->init_g = (a.color >> 8) & 0xFF;
+	br->init_b = a.color & 0xFF;
 }
 
 void	init_bresenham(t_algo *br, t_point a, t_point b)
@@ -48,8 +48,8 @@ void	init_bresenham(t_algo *br, t_point a, t_point b)
 
 void	color_step(t_algo *br, int *color)
 {
-	br->init_R += br->step_R;
-	br->init_G += br->step_G;
-	br->init_B += br->step_B;
-	*color = ((int)br->init_R << 16) | ((int)br->init_G << 8) | (int)br->init_B;
+	br->init_r += br->step_r;
+	br->init_g += br->step_g;
+	br->init_b += br->step_b;
+	*color = ((int)br->init_r << 16) | ((int)br->init_g << 8) | (int)br->init_b;
 }

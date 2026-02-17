@@ -58,12 +58,12 @@ typedef struct s_algo
 	int		sy;
 	int		err;
 	int		e2;
-	float	step_R;
-	float	step_G;
-	float	step_B;
-	float	init_R;
-	float	init_G;
-	float	init_B;
+	float	step_r;
+	float	step_g;
+	float	step_b;
+	float	init_r;
+	float	init_g;
+	float	init_b;
 }	t_algo;
 
 typedef struct s_app
@@ -94,7 +94,6 @@ void	setup_hooks(t_app *app);
 void	init_color(t_algo *br, t_point a, t_point b);
 void	init_bresenham(t_algo *br, t_point a, t_point b);
 void	color_step(t_algo *br, int *color);
-
 
 // trace
 void	trace_wireframe(t_app *app);

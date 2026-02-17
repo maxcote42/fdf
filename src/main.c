@@ -15,7 +15,7 @@
 static void	init_variables(t_app *app)
 {
 	double	radiant;
-	
+
 	radiant = 30.0 * M_PI / 180.0;
 	app->cos_radiant = cos(radiant);
 	app->sin_radiant = sin(radiant);
