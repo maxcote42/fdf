@@ -25,11 +25,11 @@
 [x] ne pas oublier les flags -wall-werror-wextra
 [x] x et y iso en float ?
 [x] revoir les couleurs pour etre sur --> A TESTER
-[] variable globale
+[x] variable globale
 [x] pourquoi double pour la structure de s app
 [x] # include <X11/keysym.h>
 [] free 
 [] attention aux traces : printf et flag pour valgrind
-[] return 0 ou 1
+[x] return 0 ou 1
 [] leak gnl?
-[] separer les bonus
+[x] separer les bonus
