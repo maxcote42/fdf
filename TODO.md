@@ -31,5 +31,6 @@
 [] free 
 [] attention aux traces : printf et flag pour valgrind
 [x] return 0 ou 1
-[] leak gnl?
+[] leak gnl >> buffer size 1 ??
 [x] separer les bonus
+[] gerer que les fichiers .fdf
