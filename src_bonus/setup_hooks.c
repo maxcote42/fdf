@@ -21,18 +21,6 @@ static int	handle_close(t_app *app)
 	return (0);
 }
 
-static int	handle_cmd(int keycode, t_app *app)
-{
-	if (keycode == XK_Escape)
-	{
-		mlx_destroy_image(app->mlx, app->image.img);
-		mlx_destroy_window(app->mlx, app->win);
-		free_map(app->map.points, app->map.height);
-		exit(0);
-	}
-	return (0);
-}
-
 static int	handle_cmd_bonus(int keycode, t_app *app)
 {
 	if (keycode == XK_t && app->scale < 1000)
@@ -47,9 +35,22 @@ static int	handle_cmd_bonus(int keycode, t_app *app)
 		app->origin_y -= 20;
 	else if (keycode == XK_Up && app->origin_y > -5000)
 		app->origin_y += 20;
+	return (0);
+}
+
+static int	handle_cmd(int keycode, t_app *app)
+{
+	if (keycode == XK_Escape)
+	{
+		mlx_destroy_image(app->mlx, app->image.img);
+		mlx_destroy_window(app->mlx, app->win);
+		free_map(app->map.points, app->map.height);
+		exit(0);
+	}
 	if (keycode == XK_t || keycode == XK_w || keycode == XK_Left
 		|| keycode == XK_Right || keycode == XK_Down || keycode == XK_Up)
 	{	
+		handle_cmd_bonus(keycode, app);
 		ft_memset(app->image.addr, 0, SCREEN_X
 			* SCREEN_Y * (app->image.bpp / 8));
 		trace_wireframe(app);
@@ -60,6 +61,5 @@ static int	handle_cmd_bonus(int keycode, t_app *app)
 void	setup_hooks(t_app *app)
 {
 	mlx_key_hook(app->win, handle_cmd, app);
-	mlx_key_hook(app->win, handle_cmd_bonus, app);
 	mlx_hook(app->win, 17, 0, handle_close, app);
 }

@@ -18,6 +18,7 @@ SRCS = $(wildcard src/*.c) \
 		$(wildcard src/utils/*.c)
 SRCS_BONUS = $(wildcard src_bonus/*.c) \
 		$(wildcard src_bonus/utils/*.c)
+
 OBJS = $(SRCS:%.c=$(OBJDIR)/%.o)
 OBJS_BONUS = $(SRCS_BONUS:%.c=$(OBJDIR_BONUS)/%.o)
 
