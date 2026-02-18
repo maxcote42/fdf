@@ -33,4 +33,5 @@
 [x] return 0 ou 1
 [] leak gnl >> buffer size 1 ??
 [x] separer les bonus
-[] gerer que les fichiers .fdf
+[x] gerer que les fichiers .fdf
+[] README
