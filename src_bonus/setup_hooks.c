@@ -16,6 +16,8 @@ static int	handle_close(t_app *app)
 {
 	mlx_destroy_image(app->mlx, app->image.img);
 	mlx_destroy_window(app->mlx, app->win);
+	mlx_destroy_display(app->mlx);
+	free(app->mlx);
 	free_map(app->map.points, app->map.height);
 	exit(0);
 	return (0);
@@ -44,6 +46,8 @@ static int	handle_cmd(int keycode, t_app *app)
 	{
 		mlx_destroy_image(app->mlx, app->image.img);
 		mlx_destroy_window(app->mlx, app->win);
+		mlx_destroy_display(app->mlx);
+		free(app->mlx);
 		free_map(app->map.points, app->map.height);
 		exit(0);
 	}

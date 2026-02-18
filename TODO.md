@@ -35,3 +35,4 @@
 [x] separer les bonus
 [x] gerer que les fichiers .fdf
 [] README
+[] int max
