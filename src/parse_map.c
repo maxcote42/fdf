@@ -49,6 +49,8 @@ static int	get_dim(char *file, t_map *map)
 		if (map->height != 0 && map->width != count_arg(line))
 		{
 			free(line);
+			while (line)
+				line = get_next_line(fd);
 			close(fd);
 			return (1);
 		}
@@ -58,6 +60,38 @@ static int	get_dim(char *file, t_map *map)
 	}
 	close(fd);
 	return (0);
+}
+
+static void	get_width(t_map *map, char *line, int *i)
+{
+	if (map->height == 0)
+		map->width = count_arg(line);
+	if (map->height != 0 && map->width != count_arg(line))
+		*i = 1;
+}
+
+static int	get_dim(char *file, t_map *map)
+{
+	int		fd;
+	char	*line;
+	int		i;
+
+	fd = open(file, O_RDONLY);
+	if (fd < 0)
+		return (1);
+	map->width = 0;
+	map->height = 0;
+	line = get_next_line(fd);
+	i = 0;
+	while (line)
+	{
+		get_width(map, line, &i);
+		map->height += 1;
+		free(line);
+		line = get_next_line(fd);
+	}
+	close(fd);
+	return (i);
 }
 
 int	parse_map(char *file, t_map *map)
