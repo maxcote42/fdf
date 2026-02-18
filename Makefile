@@ -2,7 +2,7 @@ NAME = fdf
 NAME_BONUS = fdf_bonus
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -g
+CFLAGS = -Wall -Wextra -Werror -g 
 
 INCDIR = includes
 INCDIR_BONUS = includes_bonus

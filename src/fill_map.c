@@ -49,11 +49,13 @@ static int	get_color(char *value)
 	return (0xFFFFFF);
 }
 
-static void	fill_line(char **values, t_map *map, int y)
+static int	fill_line(char **values, t_map *map, int y)
 {
 	int	x;
+	int	i;
 
 	x = 0;
+	i = 0;
 	while (x < (int)map->width)
 	{
 		map->points[y][x].x = x;
@@ -62,6 +64,8 @@ static void	fill_line(char **values, t_map *map, int y)
 		map->points[y][x].color = get_color(values[x]);
 		x++;
 	}
+
+	return (i);
 }
 
 static int	split_line(char *line, t_map *map, int y)
@@ -74,7 +78,11 @@ static int	split_line(char *line, t_map *map, int y)
 	values = ft_split(line, ' ');
 	if (!values)
 		return (1);
-	fill_line(values, map, y);
+	if (fill_line(values, map, y) == 1)
+	{
+		free_tab(values);
+		return (1);
+	}
 	free_tab(values);
 	return (0);
 }

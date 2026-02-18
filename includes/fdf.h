@@ -20,6 +20,7 @@
 # include "libft.h"
 # include "mlx.h"
 # include <X11/keysym.h>
+# include <limits.h>
 
 # define SCREEN_X 1200
 # define SCREEN_Y 900

@@ -31,37 +31,6 @@ static unsigned int	count_arg(char *line)
 	return (count);
 }
 
-static int	get_dim(char *file, t_map *map)
-{
-	int		fd;
-	char	*line;
-
-	fd = open(file, O_RDONLY);
-	if (fd < 0)
-		return (1);
-	map->width = 0;
-	map->height = 0;
-	line = get_next_line(fd);
-	while (line)
-	{
-		if (map->height == 0)
-			map->width = count_arg(line);
-		if (map->height != 0 && map->width != count_arg(line))
-		{
-			free(line);
-			while (line)
-				line = get_next_line(fd);
-			close(fd);
-			return (1);
-		}
-		map->height += 1;
-		free(line);
-		line = get_next_line(fd);
-	}
-	close(fd);
-	return (0);
-}
-
 static void	get_width(t_map *map, char *line, int *i)
 {
 	if (map->height == 0)
@@ -97,6 +66,8 @@ static int	get_dim(char *file, t_map *map)
 int	parse_map(char *file, t_map *map)
 {
 	if (get_dim(file, map) == 1)
+		return (1);
+	if (map->width > UINT_MAX || map->height > UINT_MAX)
 		return (1);
 	if (fill_map(file, map) == 1)
 		return (1);

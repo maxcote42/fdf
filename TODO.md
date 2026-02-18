@@ -19,8 +19,6 @@
 ## EVENTS
 
 [x] Pouvoir quitter avec ESC ou la croix
-
-
 [x] ne pas oublier de retirer #include <stdio.h>
 [x] ne pas oublier les flags -wall-werror-wextra
 [x] x et y iso en float ?
@@ -28,11 +26,13 @@
 [x] variable globale
 [x] pourquoi double pour la structure de s app
 [x] # include <X11/keysym.h>
-[] free 
-[] attention aux traces : printf et flag pour valgrind
+[x] free 
 [x] return 0 ou 1
-[] leak gnl >> buffer size 1 ??
+[x] leak gnl >> buffer size 1 ??
 [x] separer les bonus
 [x] gerer que les fichiers .fdf
+------
 [] README
 [] int max
+[] attention aux traces : printf et flag pour valgrind
+[] refaire les fichiers bonus
