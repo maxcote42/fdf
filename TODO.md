@@ -26,14 +26,14 @@
 [x] variable globale
 [x] pourquoi double pour la structure de s app
 [x] # include <X11/keysym.h>
-[x] free 
 [x] return 0 ou 1
 [x] leak gnl >> buffer size 1 ??
 [x] separer les bonus
 [x] gerer que les fichiers .fdf
 ------
-[] README
-[] int max
-[] attention aux traces : printf et flag pour valgrind
-[] refaire les fichiers bonus
-[] relink
+[x] README
+[x] int max
+[x] attention aux traces : printf et flag pour valgrind
+[x] refaire les fichiers bonus
+[x] relink >> make deux fois ca ne fais pas si rien n'a change
+[x] free 
