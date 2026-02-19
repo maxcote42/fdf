@@ -14,9 +14,9 @@
 
 static int	get_altitude(char *value)
 {
-	int	i;
-	int	count;
-	int	sign;
+	int		i;
+	long	count;
+	int		sign;
 
 	i = 0;
 	sign = 1;
@@ -32,7 +32,11 @@ static int	get_altitude(char *value)
 		count = count * 10 + (value[i] - '0');
 		i++;
 	}
-	return (sign * count);
+	if ((count * sign) > INT_MAX)
+		return (INT_MAX);
+	if ((count * sign) < INT_MIN)
+		return (INT_MIN);
+	return (sign * (int)count);
 }
 
 static int	get_color(char *value)

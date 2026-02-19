@@ -67,7 +67,8 @@ int	parse_map(char *file, t_map *map)
 {
 	if (get_dim(file, map) == 1)
 		return (1);
-	if (map->width > UINT_MAX || map->height > UINT_MAX)
+	if (map->width > UINT_MAX || map->height > UINT_MAX
+			|| map->width <= 0 || map->height <= 0 )
 		return (1);
 	if (fill_map(file, map) == 1)
 		return (1);

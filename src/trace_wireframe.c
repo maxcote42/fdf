@@ -34,11 +34,9 @@ static void	trace_line(t_app *app, t_point a, t_point b)
 
 	init_bresenham(&br, a, b);
 	color = a.color;
-	while (1)
+	add_pixel(&app->image, a.x_iso, a.y_iso, color);
+	while (a.x_iso != b.x_iso || a.y_iso != b.y_iso)
 	{
-		add_pixel(&app->image, a.x_iso, a.y_iso, color);
-		if (a.x_iso == b.x_iso && a.y_iso == b.y_iso)
-			break ;
 		color_step(&br, &color);
 		br.e2 = 2 * br.err;
 		if (br.e2 > -br.dy)
@@ -51,6 +49,7 @@ static void	trace_line(t_app *app, t_point a, t_point b)
 			br.err += br.dx;
 			a.y_iso += br.sy;
 		}
+		add_pixel(&app->image, a.x_iso, a.y_iso, color);
 	}
 }
 

@@ -36,3 +36,4 @@
 [] int max
 [] attention aux traces : printf et flag pour valgrind
 [] refaire les fichiers bonus
+[] relink
