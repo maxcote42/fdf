@@ -68,7 +68,6 @@ static int	fill_line(char **values, t_map *map, int y)
 		map->points[y][x].color = get_color(values[x]);
 		x++;
 	}
-
 	return (i);
 }
 
